@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Bookstore.Repository;
 using Bookstore.POCO;
+using Bookstore.Models;
 
 namespace Bookstore.Controllers
 {
@@ -16,80 +17,37 @@ namespace Bookstore.Controllers
         {
             return View();
         }
+        //[HttpPost]
+        //public ActionResult Login(Login objUser)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        using (RestaurantDBEntities db = new RestaurantDBEntities())
+        //        {
+        //            var id = 0;
+        //            if (int.TryParse(objUser.Username, out id))
+        //            {
+        //                var obj = db.Workers.Where(a => a.Id == id && a.Password.Equals(objUser.Password)).FirstOrDefault();
+        //                if (obj != null)
+        //                {
+        //                    WorkerModel.Id = obj.Id;
+        //                    WorkerModel.Name = obj.Name;
+        //                    WorkerModel.Surname = obj.Surname;
+        //                    WorkerModel.Position = (int)obj.Postion.Access;
 
-        // GET: Login/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+        //                    return RedirectToAction("Index");
+        //                }
+        //            }
+        //            else
+        //                ViewBag.Failedcount = "Incorect data!";
 
-        // GET: Login/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //        }
+        //        ViewBag.NotValidUser = "User Does not Exists!";
+        //    }
+        //    else
+        //        ViewBag.Failedcount = "Incorect data!";
 
-        // POST: Login/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Login/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Login/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Login/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Login/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //    return View(objUser);
+        //}
     }
 }

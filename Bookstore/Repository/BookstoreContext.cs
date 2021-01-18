@@ -21,6 +21,7 @@ namespace Bookstore.Repository
         public DbSet<OrderToBook> OrderToBook { get; set; }
         public DbSet<OrderStatus> OrderStatus { get; set; }
         public DbSet<User> User { get; set; }
+        public DbSet<Photo> Photo { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -33,6 +34,7 @@ namespace Bookstore.Repository
             modelBuilder.Entity<OrderToBook>().ToTable("OrderToBook");
             modelBuilder.Entity<OrderStatus>().ToTable("OrderStatus");
             modelBuilder.Entity<User>().ToTable("User");
+            modelBuilder.Entity<Photo>().ToTable("Photo");
         }
     }
 }

@@ -1,32 +1,53 @@
 ﻿@model Bookstore.Models.Login
 
 @{
-    ViewData["Title"] = "Реєстрація";
+    ViewData["Title"] = "Login";
 }
 
-<h4>Вхід</h4>
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="View">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Username" class="control-label"></label>
-                <input asp-for="Username" class="form-control" />
-                <span asp-validation-for="Username" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+@using (Html.BeginForm())
+{
+    <div class="bs-example" >
+
+        <div class="form-group centerlook">
+            <h1>
+                Вхід на сайт
+            </h1>
+        </div>
+        <div class="form-group centerlook">
+            <label>
+                e-mail:&nbsp;&nbsp;&nbsp;
+            </label>
+            @Html.EditorFor(model => model.Username) *
+            @Html.ValidationMessageFor(model => model.Username)
+        </div>
+        <div class="form-group centerlook">
+            <label> Пароль:&nbsp;</label>
+            @Html.EditorFor(model => model.Password) *
+            @Html.ValidationMessageFor(model => model.Password)
+
+        </div>
+        <div class="form-group error">
+            @if (@ViewBag.Failedcount != null)
+            {
+
+                <label>@ViewBag.Failedcount</label>
+            }
+
+            @if (@ViewBag.NotValidUser != null)
+            {
+
+                <label> @ViewBag.NotValidUser</label>
+            }
+        </div>
+        <div class="form-group error">
+            <input type="submit" value="Увійти" class="btn btn-primary" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.ActionLink("Зареєструватися", "Index", "Зареєструватися")
+
+        </div>
+        <div class="loginbtn">
+
+        </div>
     </div>
-</div>
-
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+

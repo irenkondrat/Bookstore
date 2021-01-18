@@ -27,7 +27,10 @@ namespace Bookstore.Controllers
         {
             return View();
         }
-
+        public IActionResult Login()
+        {
+            return Redirect("/Login/Index");
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
